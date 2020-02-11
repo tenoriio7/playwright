@@ -1,0 +1,26 @@
+{
+  "name": "comunidade",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tenoriio7/puppeteer2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tenoriio7/puppeteer2/issues"
+  },
+  "homepage": "https://github.com/tenoriio7/puppeteer2#readme",
+  "dependencies": {
+    "mocha": "^7.0.1",
+    "playwright": "^0.10.0"
+  },
+  "devDependencies": {
+    "cucumber": "^6.0.5"
+  }
+}
