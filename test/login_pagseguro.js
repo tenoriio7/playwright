@@ -18,7 +18,7 @@ describe('#indexOf()', function () {
                 await page.click('#password', {waitUntil: 'load'});
                 await page.keyboard.type('ps654321');
                 await page.click('[type="submit"]', {waitUntil: 'load'});
-                await page.screenshot({ path: '/Users/tenorio/projects/comunidade/screenshots/'+`${browserType}`+`/example-${browserType}.png` });
+                await page.screenshot({ path: '/Users/tenorio/projects/comunidade/screenshots/login_tests'+`${browserType}`+`/example-${browserType}.png` });
                 sleep(100000);
                 await browser.close();
             }
