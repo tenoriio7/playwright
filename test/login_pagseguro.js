@@ -1,25 +1,25 @@
 const playwright = require('playwright');
-
+const Login = require('../models/pagseguro')
+var login_object = new Login()
 describe('#indexOf()', function () {
     it('should return -1 when the value is not present', function () {
         (async () => {
             for (const browserType of ['chromium', 'firefox', 'webkit']) {
-                const browser = await playwright[browserType].launch({headless : false});
+                const browser = await playwright[browserType].launch({headless : false, ignoreHTTPSErrors: true});
                 const context = await browser.newContext({viewport:{width: 1280, height: 721}});
                 const page = await context.newPage();
                 await page.goto('https://pagseguro.uol.com.br/',{waitUntil: 'load'});
-                await page.click('[class="button button--light-sea-green"]');
-                await page.click('#entrar');
+                await page.click(login_object.bt_login);
+                await page.click(login.bt_login_access);
                 page.once('load', () => console.log('Page loaded!'));
-                await page.waitForSelector('#user');
-                await page.click('#user', {waitUntil: 'load'});
+                await page.waitForSelector(login_object.tf_login);
+                await page.click(login.tf_login, {waitUntil: 'load'});
                 await page.keyboard.type('cabify_mobile@mock.com');
-                await page.waitForSelector('#password');
-                await page.click('#password', {waitUntil: 'load'});
+                await page.waitForSelector(login.tf_password);
+                await page.click(login.tf_password, {waitUntil: 'load'});
                 await page.keyboard.type('ps654321');
-                await page.click('[type="submit"]', {waitUntil: 'load'});
-                await page.screenshot({ path: '/Users/tenorio/projects/comunidade/screenshots/login_tests'+`${browserType}`+`/example-${browserType}.png` });
-                sleep(100000);
+                await page.click(login.bt_submit, {waitUntil: 'load'});
+                await page.screenshot({ path: `${process.env['HOME']}/workspace/playwright/screenshots/login_tests/${browserType}/example-${browserType}.png` });
                 await browser.close();
             }
         })();

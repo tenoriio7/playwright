@@ -1,0 +1,10 @@
+# Created by https://www.gitignore.io/api/node
+
+### IDEs ###
+/.vscode
+/.idea
+
+### Node ###
+
+# Dependency directories
+node_modules/
