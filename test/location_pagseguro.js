@@ -26,7 +26,7 @@ describe('#indexOf()', function () {
                 await page.waitForSelector(mapsObject.tf_routes, { waitUntil: 'load' });
                 await page.click(mapsObject.tf_routes, { waitUntil: 'load' });
                 await page.screenshot({ path: `${process.env['HOME']}/workspace/playwright/screenshots/location_tests/${browserType}/pagseguro_result-${browserType}.png`});
-                await browser.close();
+                await browser.close(); 
             }
         })();
     });
