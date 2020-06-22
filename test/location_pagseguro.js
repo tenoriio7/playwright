@@ -16,7 +16,7 @@ describe('#indexOf()', function () {
                 });
                 const page = await context.newPage();
                 await page.goto('https://maps.google.com');
-                await page.waitForSelector(mapsObject.tf_search_box, { waitUntil: 'load' }));
+                await page.waitForSelector(mapsObject.tf_search_box, { waitUntil: 'load' });
                 // await page.screenshot({ path: `${process.env['HOME']}/workspace/playwright/screenshots/location_tests/${browserType}/home_maps-${browserType}.png`});
                 await page.click(mapsObject.tf_search_box, { waitUntil: 'load' });
                 await page.keyboard.type('PagSeguro UOL - Avenida Brigadeiro Faria Lima - Jardim Paulistano, São Paulo - SP');
