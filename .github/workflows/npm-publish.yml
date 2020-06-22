@@ -2,6 +2,11 @@ on:
   push:
     branches:
     - master
+    
+- uses: actions/upload-artifact@v2
+  with:
+    name: test-artifacts
+    path: path/to/artifacts
 
 jobs:
   e2e-tests:
@@ -16,6 +21,3 @@ jobs:
 
       - name: Install dependencies and run tests
         run: npm install && npm test
- with:
-        name: Output documents
-        path: screenshots/*.png
