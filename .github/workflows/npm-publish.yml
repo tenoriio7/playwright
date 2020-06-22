@@ -16,3 +16,6 @@ jobs:
 
       - name: Install dependencies and run tests
         run: npm install && npm test
+ with:
+        name: Output documents
+        path: screenshots/*.png
