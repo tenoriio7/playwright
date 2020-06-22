@@ -11,7 +11,8 @@ describe('#indexOf()', function () {
                 const context = await browser.newContext({
                     viewport: { width: 1280, height: 721 },
                     geolocation: { longitude: 12.492507, latitude: 41.889938 },
-                    permissions: { 'https://www.google.com': ['geolocation'] }
+                    permissions: { 'https://www.google.com': ['geolocation'] },
+                    ignoreHTTPSErrors: true
                 });
                 const page = await context.newPage();
                 await page.goto('https://maps.google.com');
