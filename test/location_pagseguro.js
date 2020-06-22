@@ -5,8 +5,8 @@ describe('#indexOf()', function () {
     it('should return -1 when the value is not present', function () {
         (async () => {
             for (const browserType of ['chromium',
-            //  'firefox',   Error: Geolocation emulation is not supported in Firefox
-              'webkit']) {
+            //  'firefox', 'webkit'  Error: Geolocation emulation is not supported in Firefox
+              ]) {
                 const browser = await playwright[browserType].launch({ headless: false });
                 const context = await browser.newContext({
                     viewport: { width: 1280, height: 721 },
