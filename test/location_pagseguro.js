@@ -4,7 +4,7 @@ var mapsObject = new Maps()
 describe('#indexOf()', function () {
     it('should return -1 when the value is not present', function () {
         (async () => {
-            for (const browserType of ['firefox',
+            for (const browserType of ['chromium',
             //  'firefox', 'webkit'  Error: Geolocation emulation is not supported in Firefox
               ]) {
                 const browser = await playwright[browserType].launch({ headless: false });
