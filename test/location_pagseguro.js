@@ -4,16 +4,16 @@ var mapsObject = new Maps()
 describe('#indexOf()', function () {
     it('should return -1 when the value is not present', function () {
         (async () => {
-            for (const browserType of ['chromium',
+            for (const browserType of ['firefox',
             //  'firefox', 'webkit'  Error: Geolocation emulation is not supported in Firefox
               ]) {
                 const browser = await playwright[browserType].launch({ headless: false });
-                const context = await browser.newContext({
-                    viewport: { width: 1280, height: 721 },
-                    geolocation: { longitude: 12.492507, latitude: 41.889938 },
-                    permissions: { 'https://www.google.com': ['geolocation'] },
-                    ignoreHTTPSErrors: true
-                });
+                // const context = await browser.newContext({
+                //     viewport: { width: 1280, height: 721 },
+                //     geolocation: { longitude: 12.492507, latitude: 41.889938 },
+                //     permissions: { 'https://www.google.com': ['geolocation'] },
+                //     ignoreHTTPSErrors: true
+                // });
                 const page = await context.newPage();
                 process.on('unhandledRejection', (reason, p) => {
                     console.error('Unhandled Rejection at: Promise', p, 'reason:', reason);
