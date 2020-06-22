@@ -8,17 +8,13 @@ describe('#indexOf()', function () {
             //  'firefox', 'webkit'  Error: Geolocation emulation is not supported in Firefox
               ]) {
                 const browser = await playwright[browserType].launch({ headless: false });
-                // const context = await browser.newContext({
-                //     viewport: { width: 1280, height: 721 },
-                //     geolocation: { longitude: 12.492507, latitude: 41.889938 },
-                //     permissions: { 'https://www.google.com': ['geolocation'] },
-                //     ignoreHTTPSErrors: true
-                // });
+                const context = await browser.newContext({
+                    viewport: { width: 1280, height: 721 },
+                    geolocation: { longitude: 12.492507, latitude: 41.889938 },
+                    permissions: { 'https://www.google.com': ['geolocation'] },
+                    ignoreHTTPSErrors: true
+                });
                 const page = await context.newPage();
-                process.on('unhandledRejection', (reason, p) => {
-                    console.error('Unhandled Rejection at: Promise', p, 'reason:', reason);
-                    browser.close();
-                  });
                 await page.goto('https://maps.google.com');
                 await page.waitForSelector(mapsObject.tf_search_box);
                 await page.screenshot({ path: `${process.env['HOME']}/workspace/playwright/screenshots/location_tests/${browserType}/home_maps-${browserType}.png`});
