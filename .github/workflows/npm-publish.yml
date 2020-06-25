@@ -21,3 +21,8 @@ jobs:
 
       - name: Install dependencies and run tests
         run: npm install && npm test
+      - name: Upload distribution file to github artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Output documents
+          path: sreenshots/*
