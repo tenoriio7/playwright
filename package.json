@@ -17,10 +17,9 @@
   },
   "homepage": "https://github.com/tenoriio7/puppeteer2#readme",
   "dependencies": {
-    "mocha": "^7.0.1",
-    "playwright": "^0.10.0"
-  },
-  "devDependencies": {
-    "cucumber": "^6.0.5"
+    "@ffmpeg-installer/ffmpeg": "latest",
+    "mocha": "latest",
+    "playwright": "latest",
+    "playwright-video": "latest"
   }
 }
