@@ -1,5 +1,10 @@
 const { chromium } = require("playwright");
 const { saveVideo } = require("playwright-video");
+const QA = require('../data/qa/environment')
+var qaData = new QA()
+const GitHub = require('../pages/github')
+var github = new GitHub()
+
 
 describe('Record Video Test', function () {
     it('Record video Test', function () {
@@ -9,10 +14,10 @@ describe('Record Video Test', function () {
         const page = await context.newPage();
         const capture = await saveVideo(page, "video.mp4");
       
-        await page.goto("https://github.com");
-        await page.type('input[name="q"]', "Playwright");
-        await page.press('input[name="q"]', "Enter");
-        await page.click(".repo-list-item:nth-child(1) a");
+        await page.goto(qaData.github_uri);
+        await page.type(github.tf_search_box, "Playwright");
+        await page.press(github.tf_search_box, "Enter");
+        await page.click(github.search_list);
         await capture.stop();
         await browser.close();
       })();

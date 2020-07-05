@@ -20,6 +20,7 @@
     "@ffmpeg-installer/ffmpeg": "latest",
     "mocha": "latest",
     "playwright": "latest",
-    "playwright-video": "latest"
+    "playwright-video": "latest",
+    "playwright-core": "latest"
   }
 }

@@ -1,23 +1,36 @@
 const playwright = require("playwright");
+const { webkit, devices } = playwright;
 
-describe('#indexOf()', function () {
-    it('should login in Ibanking PagSeguro', function () {
+const iphone_11  = devices['iPhone 11 Pro']
+const galaxy_S5  = devices['Galaxy S5']
+const iphone_SE  = devices['iPhone SE']
+const deviceList = [iphone_11,galaxy_S5,iphone_SE]
+// var cont = smartphonesNames.length; 
+var cont = 1
+
+describe('UOL ', function () {
+    it('should navigate to Login Page', function () {
         (async () => {
-            const { webkit, devices } = playwright;
-            const iPhone11 = devices['iPhone 11 Pro'];
-            const browser = await webkit.launch();
-            const context = await browser.newContext({
-              viewport: iPhone11.viewport,
-              userAgent: iPhone11.userAgent,
-              geolocation: { longitude: 12.492507, latitude: 41.889938 },
-              permissions: ['geolocation']
-            });
-            const page = await context.newPage();
-            await page.goto('https://maps.google.com');
-            await page.click(".ml-my-location-fab button");
-            await page.waitForRequest(/.*preview\/pwa/);
-            await page.screenshot({ path: 'colosseum-iphone.png' });
-            await browser.close();
-          })();
+            for (const device of  deviceList) {
+                const browser = await webkit.launch(
+                    {headless : false,
+                    ignoreHTTPSErrors: true});
+                    const context = await browser.newContext({
+                      viewport: device.viewport,
+                      userAgent: device.userAgent,
+                      geolocation: { longitude: 12.492507, latitude: 41.889938 },
+                      permissions: ['geolocation']
+                    });
+                    const page = await context.newPage();
+                    await page.goto('https://www.uol.com.br/');
+                    await page.screenshot({ path: `./screenshots/mobile/device ${cont}/home_page.png` });
+                    await page.click(".email_form_send",  { waitUntil: 'load' });
+                    await page.waitForSelector("#user", { waitUntil: 'load' });
+                    await page.screenshot({ path: `./screenshots/mobile/device ${cont}/login_page.png` });
+                    
+                    cont++;
+                    await browser.close();
+            }
+        })();
     });
 });

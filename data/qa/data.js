@@ -1,7 +1,7 @@
 
 class Data {
     constructor() {
-        this.login= 'cabify_mobile@mock.com';
+        this.login= 'joaozinho@gmail.com';
         this.password = 'ps654321';
     }
 }
