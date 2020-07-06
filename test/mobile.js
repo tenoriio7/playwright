@@ -9,7 +9,7 @@ const deviceList = [iphone_11,galaxy_S5,iphone_SE]
 var cont = 1
 
 describe('UOL ', function () {
-    it('should navigate to Login Page', function () {
+    it('should navigate in Google Maps', function () {
         (async () => {
             for (const device of  deviceList) {
                 const browser = await webkit.launch(
