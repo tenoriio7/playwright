@@ -8,7 +8,7 @@
 
 <a href="https://github.com/qawolf/playwright-video">playwright-video</a>
 
-Será necessário ter realizar o processo de configuração do  [FFmpeg](https://www.ffmpeg.org)  
+Será necessário ter realizado o processo de configuração do  [FFmpeg](https://www.ffmpeg.org)  
 
  Variavel de ambiente :   `FFMPEG_PATH` 
 
