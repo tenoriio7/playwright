@@ -9,7 +9,7 @@ var qaData = new QA()
 describe('Location Test', function () {
     it('should search PagSeguro in Google', function () {
         (async () => {
-            for (const browserType of ['chromium', 'firefox']) {
+            for (const browserType of ['chromium', 'firefox', 'webkit']) {
                 const browser = await playwright[browserType].launch({
                     headless: false, ignoreHTTPSErrors: true, args: [
                         '--start-maximized' // you can also use '--start-fullscreen'

@@ -12,7 +12,7 @@ describe('Record Video Test', function () {
         const browser = await chromium.launch();
         const context = await browser.newContext();
         const page = await context.newPage();
-        const capture = await saveVideo(page, "video.mp4");
+        const capture = await saveVideo(page, "./videos/video.mp4");
       
         await page.goto(qaData.github_uri);
         await page.type(github.tf_search_box, "Playwright");

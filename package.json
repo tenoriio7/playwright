@@ -1,10 +1,10 @@
 {
-  "name": "comunidade",
+  "name": "poc_playwright",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/location_pagseguro.js"
+    "test": "mocha test/ --timeout 100000"
   },
   "repository": {
     "type": "git",
