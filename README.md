@@ -17,7 +17,7 @@
 
 Na pasta do projeto digite o comando:
 ```
-npm test-without-video
+"mocha test/mobile.js test/location_pagseguro.js --timeout 100000"
 ```
 
 
