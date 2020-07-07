@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/ --timeout 100000"
+    "test": "mocha test/ --timeout 100000",
+    "test-without-video": "mocha test/mobile.js test/location_pagseguro.js --timeout 100000"
   },
   "repository": {
     "type": "git",
