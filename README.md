@@ -8,7 +8,7 @@
 
 <a href="https://github.com/qawolf/playwright-video">playwright-video</a>
 
-## Será necessário ter realizado o processo de configuração do FFmpeg
+## Será necessário ter realizado o processo de configuração do FFmpeg para rodar o teste com captura de vídeo.
 
  [FFmpeg](https://www.ffmpeg.org)  
  Variavel de ambiente :   `FFMPEG_PATH` 
