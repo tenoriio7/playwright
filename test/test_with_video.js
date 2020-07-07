@@ -23,6 +23,7 @@ describe('Record Video Test', function () {
         await browser.close();
         }catch(err){
             console.log(err)
+            process.exit(1);
         }
 
       })();
