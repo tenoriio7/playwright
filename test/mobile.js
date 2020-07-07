@@ -5,15 +5,21 @@ const iphone_11  = devices['iPhone 11 Pro']
 const galaxy_S5  = devices['Galaxy S5']
 const iphone_SE  = devices['iPhone SE']
 const deviceList = [iphone_11,galaxy_S5,iphone_SE]
-// var cont = smartphonesNames.length; 
 var cont = 1
 
+const QA = require('../data/qa/environment')
+var qaData = new QA()
+const Uol = require('../pages/uol')
+
+const uol = new Uol()
+
+
 describe('UOL ', function () {
-    it('should navigate in Google Maps', function () {
+    it('should navigate  to login page', function () {
         (async () => {
             for (const device of  deviceList) {
                 const browser = await webkit.launch(
-                    {headless : false,
+                    {headless : true,
                     ignoreHTTPSErrors: true});
                     const context = await browser.newContext({
                       viewport: device.viewport,
@@ -22,11 +28,11 @@ describe('UOL ', function () {
                       permissions: ['geolocation']
                     });
                     const page = await context.newPage();
-                    await page.goto('https://www.uol.com.br/');
-                    await page.screenshot({ path: `./screenshots/mobile/device ${cont}/home_page.png` });
-                    await page.click(".email_form_send",  { waitUntil: 'load' });
-                    await page.waitForSelector("#user", { waitUntil: 'load' });
-                    await page.screenshot({ path: `./screenshots/mobile/device ${cont}/login_page.png` });
+                    await page.goto(qaData.uol_uri);
+                    await page.screenshot({ path: `./artifacts/screenshots/mobile/device ${cont}/home_page.png` });
+                    await page.click(uol.tf_email,  { waitUntil: 'load' });
+                    await page.waitForSelector(uol.tf_user, { waitUntil: 'load' });
+                    await page.screenshot({ path: `./artifacts/screenshots/mobile/device ${cont}/login_page.png` });
                     
                     cont++;
                     await browser.close();
